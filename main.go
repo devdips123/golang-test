@@ -1,25 +1,15 @@
 package main
 
 import (
-	dao "first-program/dao"
-	web "first-program/webservice"
 	"fmt"
+
+	dao "dsahoo.com/golang/dao"
+	web "dsahoo.com/golang/webservice"
 )
 
 func main() {
-	fmt.Println("hello world")
-	dao.ReadFile()
-	// fmt.Println(getCustomers())
-	// for _, cust := range getCustomers() {
-	// 	fmt.Printf("Name: %s\n", cust.firstName)
-	// }
-	//custList := dao.GetCustomers()
-	//fmt.Println(custList)
-	//newCust := dao.Customer{FirstName: "Ellora", LastName: "Nath", Id: 3}
-	//dao.CreateCustomer(newCust)
-	//custList = dao.GetCustomers()
-	//fmt.Println(custList)
+	fmt.Println("Inside the main function")
+	dao.PrintAsJson(dao.GetCustomers())
 	web.Expose()
-	//dao.DeleteCustomerById(1)
-	fmt.Println(dao.GetCustomers())
+
 }

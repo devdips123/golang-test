@@ -35,10 +35,6 @@ func GetCustomers() (customers []Customer) {
 		err = json.Unmarshal(data, &customers)
 		handleError(err)
 	}
-
-	// customers = append(customers, Customer{FirstName: "Debasish", LastName: "Sahoo", Id: 11, PhoneNumber: "216-225-4546"})
-	// customers = append(customers, Customer{FirstName: "Amit", LastName: "Gupta", Id: 13})
-
 	return customers
 }
 
@@ -52,7 +48,7 @@ func CreateCustomer(customer Customer) {
 	} else {
 		fmt.Println("Customer already exists")
 	}
-	printAsJson(customers)
+	PrintAsJson(customers)
 }
 
 func GetCustomerById(id int) (cust Customer) {
@@ -87,7 +83,6 @@ func DeleteCustomerById(id int) bool {
 }
 
 func writeAsJson(customers []Customer) {
-	//names := []string{"Debasish", "Ellora"}
 	data, err := json.Marshal(customers)
 	if err != nil {
 		log.Fatal(err)
@@ -95,7 +90,7 @@ func writeAsJson(customers []Customer) {
 	ioutil.WriteFile("customers.json", data, 0644)
 }
 
-func printAsJson(customers []Customer) {
+func PrintAsJson(customers []Customer) {
 	data, err := json.Marshal(customers)
 	handleError(err)
 	fmt.Println(string(data))
